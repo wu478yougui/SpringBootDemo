@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.frpf.pcm.mapper.DataMapper">
+    <resultMap id="BaseResultMap" type="com.frpf.pcm.dto.Data">
+        <result column="user_Id" jdbcType="INTEGER" property="userId" />
+        <result column="user_Name" jdbcType="VARCHAR" property="userName" />
+        <result column="user_Sex" jdbcType="VARCHAR" property="userSex" />
+    </resultMap>
+
+
+    <select id="findAllUser" resultMap="BaseResultMap">
+        select * from appuser
+    </select>
+
+    <insert id="insertData" parameterType="com.frpf.pcm.dto.Data">
+        INSERT INTO appuser (
+        user_Name,
+        user_Sex
+        )
+        VALUES
+        ( #{userName},
+        #{userSex} )
+    </insert>
+</mapper>
